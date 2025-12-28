@@ -39,8 +39,8 @@ local lz_specs = {
   { "vim-obsession", cmd = "Obsession" },
   {
     "nvim-tmux-navigation",
-    after = function(plugin)
-      require(plugin.name).setup({
+    after = function(_)
+      require("nvim-tmux-navigation").setup({
         disable_when_zoomed = true,
       })
     end,
