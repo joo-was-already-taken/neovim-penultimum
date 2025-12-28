@@ -51,6 +51,18 @@ local lz_specs = {
       { "<C-k>", function() require("nvim-tmux-navigation").NvimTmuxNavigateUp() end },
     },
   },
+  {
+    "undotree",
+    cmd = "UndotreeToggle",
+    keys = {
+      { "<leader>u", "<cmd>UndotreeToggle<CR>" },
+    },
+    after = function(_)
+      vim.g.undotree_WindowLayout = 3
+      vim.g.undotree_SplitWidth = 50
+      vim.g.undotree_SetFocusWhenToggle = 1
+    end,
+  },
 }
 
 local function extend(a, b)
