@@ -9,6 +9,7 @@ if vim.g.allow_downloads then
     { "nvimtools/hydra.nvim", as = "hydra" },
     { "nvim-treesitter/nvim-treesitter", branch = "master", opt = true },
     { "nvim-neo-tree/neo-tree.nvim", as = "neo-tree", opt = true },
+    { "nvim-lualine/lualine.nvim", as = "lualine", opt = true },
 
     { "alexghergh/nvim-tmux-navigation", opt = true },
     { "nvim-telescope/telescope.nvim", as = "telescope", opt = true },
@@ -29,6 +30,7 @@ require("lz.n").load({
   require("plugins/treesitter"),
   require("plugins/neo-tree"),
   require("plugins/telescope"),
+  require("plugins/lualine"),
   require("plugins/smart-splits"),
   { "vim-obsession", cmd = "Obsession" },
   {
