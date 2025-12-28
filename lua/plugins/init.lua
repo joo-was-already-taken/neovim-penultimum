@@ -13,6 +13,8 @@ if vim.g.allow_downloads then
     { "nvim-neo-tree/neo-tree.nvim", as = "neo-tree", opt = true },
     { "nvim-lualine/lualine.nvim", as = "lualine", opt = true },
     { "folke/noice.nvim", as = "noice", opt = true },
+    { "kylechui/nvim-surround", opt = true },
+    { "lukas-reineke/indent-blankline.nvim", as = "ibl", opt = true },
 
     { "alexghergh/nvim-tmux-navigation", opt = true },
     { "nvim-telescope/telescope.nvim", as = "telescope", opt = true },
@@ -23,8 +25,6 @@ if vim.g.allow_downloads then
     { "neovim/nvim-lspconfig", opt = true },
     { "glepnir/lspsaga.nvim", as = "lspsaga", opt = true },
     { "mbbill/undotree", opt = true },
-    { "kylechui/nvim-surround", opt = true },
-    { "lukas-reineke/indent-blankline.nvim", as = "ibl", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
