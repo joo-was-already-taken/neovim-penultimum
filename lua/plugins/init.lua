@@ -5,10 +5,10 @@ if vim.g.allow_downloads then
 
     { "nvim-lua/plenary.nvim", as = "plenary" },
     "nvim-tree/nvim-web-devicons",
-    { "MunifTanjim/nui.nvim" },
+    "MunifTanjim/nui.nvim",
     { "nvimtools/hydra.nvim", as = "hydra" },
-    { "nvim-neo-tree/neo-tree.nvim", as = "neo-tree" },
-    { "nvim-treesitter/nvim-treesitter", branch = "master" },
+    { "nvim-treesitter/nvim-treesitter", branch = "master", opt = true },
+    { "nvim-neo-tree/neo-tree.nvim", as = "neo-tree", opt = true },
 
     { "alexghergh/nvim-tmux-navigation", opt = true },
     { "nvim-telescope/telescope.nvim", as = "telescope", opt = true },
