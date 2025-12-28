@@ -10,6 +10,7 @@ return {
       mode = "n",
       body = "<leader>s",
       config = {
+        hint = false,
         invoke_on_body = true,
       },
       heads = {
