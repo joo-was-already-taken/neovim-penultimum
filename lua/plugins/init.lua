@@ -59,5 +59,6 @@ local function extend(a, b)
 end
 
 extend(lz_specs, require("plugins/looks"))
+extend(lz_specs, require("plugins/mini"))
 
 require("lz.n").load(lz_specs)
