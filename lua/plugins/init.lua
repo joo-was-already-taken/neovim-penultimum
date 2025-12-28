@@ -35,6 +35,7 @@ local lz_specs = {
   require("plugins/telescope"),
   require("plugins/lualine"),
   require("plugins/smart-splits"),
+  require("plugins/blink"),
   { "vim-obsession", cmd = "Obsession" },
   {
     "nvim-tmux-navigation",
