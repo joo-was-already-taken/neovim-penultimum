@@ -7,9 +7,12 @@ if vim.g.allow_downloads then
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
     { "nvimtools/hydra.nvim", as = "hydra" },
+    { "rcarriga/nvim-notify", as = "notify" },
+
     { "nvim-treesitter/nvim-treesitter", branch = "master", opt = true },
     { "nvim-neo-tree/neo-tree.nvim", as = "neo-tree", opt = true },
     { "nvim-lualine/lualine.nvim", as = "lualine", opt = true },
+    { "folke/noice.nvim", as = "noice", opt = true },
 
     { "alexghergh/nvim-tmux-navigation", opt = true },
     { "nvim-telescope/telescope.nvim", as = "telescope", opt = true },
@@ -26,7 +29,7 @@ if vim.g.allow_downloads then
   })
 end
 
-require("lz.n").load({
+local lz_specs = {
   require("plugins/treesitter"),
   require("plugins/neo-tree"),
   require("plugins/telescope"),
@@ -47,4 +50,14 @@ require("lz.n").load({
       { "<C-k>", function() require("nvim-tmux-navigation").NvimTmuxNavigateUp() end },
     },
   },
-})
+}
+
+local function extend(a, b)
+  for _, x in ipairs(b) do
+    table.insert(a, x)
+  end
+end
+
+extend(lz_specs, require("plugins/looks"))
+
+require("lz.n").load(lz_specs)
