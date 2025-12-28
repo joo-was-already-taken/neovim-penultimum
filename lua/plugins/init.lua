@@ -23,7 +23,7 @@ if vim.g.allow_downloads then
     { "neovim/nvim-lspconfig", opt = true },
     { "glepnir/lspsaga.nvim", as = "lspsaga", opt = true },
     { "mbbill/undotree", opt = true },
-    { "stevearc/conform.nvim", as = "conform", opt = true },
+    { "kylechui/nvim-surround", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
@@ -62,6 +62,11 @@ local lz_specs = {
       vim.g.undotree_SplitWidth = 50
       vim.g.undotree_SetFocusWhenToggle = 1
     end,
+  },
+  {
+    "nvim-surround",
+    lazy = false,
+    after = function(_) require("nvim-surround").setup({}) end,
   },
 }
 
