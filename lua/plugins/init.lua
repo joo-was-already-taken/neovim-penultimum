@@ -24,6 +24,7 @@ if vim.g.allow_downloads then
     { "glepnir/lspsaga.nvim", as = "lspsaga", opt = true },
     { "mbbill/undotree", opt = true },
     { "kylechui/nvim-surround", opt = true },
+    { "lukas-reineke/indent-blankline.nvim", as = "ibl", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
@@ -67,6 +68,15 @@ local lz_specs = {
     "nvim-surround",
     lazy = false,
     after = function(_) require("nvim-surround").setup({}) end,
+  },
+  {
+    "ibl",
+    lazy = false,
+    after = function(_)
+      require("ibl").setup({
+        scope = { enabled = false },
+      })
+    end,
   },
 }
 
