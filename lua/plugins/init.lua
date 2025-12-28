@@ -60,5 +60,6 @@ end
 
 extend(lz_specs, require("plugins/looks"))
 extend(lz_specs, require("plugins/mini"))
+extend(lz_specs, require("plugins/colorschemes"))
 
 require("lz.n").load(lz_specs)
