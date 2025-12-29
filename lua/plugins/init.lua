@@ -25,6 +25,7 @@ if vim.g.allow_downloads then
     { "neovim/nvim-lspconfig", opt = true },
     { "glepnir/lspsaga.nvim", as = "lspsaga", opt = true },
     { "mbbill/undotree", opt = true },
+    { "stevearc/conform.nvim", as = "conform", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
@@ -37,6 +38,7 @@ local lz_specs = {
   require("plugins/lualine"),
   require("plugins/smart-splits"),
   require("plugins/blink"),
+  require("plugins/conform"),
   { "vim-obsession", cmd = "Obsession" },
   {
     "nvim-tmux-navigation",
