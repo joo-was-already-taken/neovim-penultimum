@@ -15,7 +15,22 @@ return {
       })
 
       local servers = {
-        lua_ls = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = {
+                workspaceDiagnostics = true,
+                neededFileStatus = {
+                  ["codestyle-check"] = "Any",
+                  ["fallback"] = "Any",
+                },
+              },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+            },
+          },
+        },
         nil_ls = {},
         bashls = {},
         pyright = {},
