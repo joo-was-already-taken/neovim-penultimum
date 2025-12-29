@@ -2,7 +2,7 @@ return {
   "nvim-treesitter",
   lazy = false,
   after = function(_)
-    local ensure_installed = {
+    local parsers = {
       "nix",
       "lua",
       "bash",
@@ -31,19 +31,48 @@ return {
       "javascript",
       "css",
     }
-    ---@diagnostic disable-next-line: missing-fields
-    require("nvim-treesitter.configs").setup({
-      auto_install = vim.g.allow_downloads,
-      ensure_installed = ensure_installed,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      indent = { enable = true },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
+    local ts = require("nvim-treesitter")
+    vim.api.nvim_create_user_command("InstallTSParsers", function()
+      local function contains(t, val)
+        for _, v in ipairs(t) do
+          if v == val then
+            return true
+          end
+        end
+        return false
+      end
+
+      local installed = ts.get_installed()
+      local to_install = {}
+      for _, parser in ipairs(parsers) do
+        if not contains(installed, parser) then
+          table.insert(to_install, parser)
+        end
+      end
+
+      if #to_install > 0 then
+        vim.notify(
+          "Installing missing parsers: " .. table.concat(to_install, ", "),
+          vim.log.levels.INFO
+        )
+        ts.install(to_install)
+      else
+        vim.notify("All declared parsers are already installed", vim.log.levels.INFO)
+      end
+    end, {})
+
+    local function start_treesitter(buf)
+      local ok, _ = pcall(vim.treesitter.start, buf)
+      if ok then
+        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end
+    end
+
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("nvim-treesitter-setup", { clear = true }),
+      callback = function(args)
+        start_treesitter(args.buf)
+      end,
     })
   end,
 }

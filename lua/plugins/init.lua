@@ -9,7 +9,7 @@ if vim.g.allow_downloads then
     { "nvimtools/hydra.nvim", as = "hydra" },
     { "rcarriga/nvim-notify", as = "notify" },
 
-    { "nvim-treesitter/nvim-treesitter", branch = "master", opt = true },
+    { "nvim-treesitter/nvim-treesitter", branch = "main", opt = true },
     { "nvim-neo-tree/neo-tree.nvim", as = "neo-tree", opt = true },
     { "nvim-lualine/lualine.nvim", as = "lualine", opt = true },
     { "folke/noice.nvim", as = "noice", opt = true },
