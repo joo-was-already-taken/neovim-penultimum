@@ -39,7 +39,9 @@ end)
 -- delete trailing whitespace
 keymap_set("n", "<leader>wt", function()
   local cursor = vim.fn.getpos(".")
-  pcall(function() vim.cmd([[%s/\s\+$//e]]) end)
+  pcall(function()
+    vim.cmd([[%s/\s\+$//e]])
+  end)
   vim.fn.setpos(".", cursor)
 end)
 

@@ -48,10 +48,30 @@ local lz_specs = {
       })
     end,
     keys = {
-      { "<C-h>", function() require("nvim-tmux-navigation").NvimTmuxNavigateLeft() end },
-      { "<C-l>", function() require("nvim-tmux-navigation").NvimTmuxNavigateRight() end },
-      { "<C-j>", function() require("nvim-tmux-navigation").NvimTmuxNavigateDown() end },
-      { "<C-k>", function() require("nvim-tmux-navigation").NvimTmuxNavigateUp() end },
+      {
+        "<C-h>",
+        function()
+          require("nvim-tmux-navigation").NvimTmuxNavigateLeft()
+        end,
+      },
+      {
+        "<C-l>",
+        function()
+          require("nvim-tmux-navigation").NvimTmuxNavigateRight()
+        end,
+      },
+      {
+        "<C-j>",
+        function()
+          require("nvim-tmux-navigation").NvimTmuxNavigateDown()
+        end,
+      },
+      {
+        "<C-k>",
+        function()
+          require("nvim-tmux-navigation").NvimTmuxNavigateUp()
+        end,
+      },
     },
   },
   {
@@ -69,7 +89,9 @@ local lz_specs = {
   {
     "nvim-surround",
     lazy = false,
-    after = function(_) require("nvim-surround").setup({}) end,
+    after = function(_)
+      require("nvim-surround").setup({})
+    end,
   },
   {
     "ibl",

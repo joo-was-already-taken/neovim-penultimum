@@ -2,13 +2,15 @@ local function find_files()
   local telescope = require("telescope.builtin")
   local is_in_git_repo = pcall(telescope.git_files, { show_untracked = true })
   if not is_in_git_repo then
-    telescope.find_files({ find_command = {
-      "fd",
-      "--type=f",
-      "--hidden",
-      "--strip-cwd-prefix",
-      "--no-require-git",
-    } })
+    telescope.find_files({
+      find_command = {
+        "fd",
+        "--type=f",
+        "--hidden",
+        "--strip-cwd-prefix",
+        "--no-require-git",
+      },
+    })
   end
 end
 
@@ -38,8 +40,8 @@ return {
           "--no-require-git",
         },
       },
-      })
-    end,
+    })
+  end,
   keys = {
     { "<leader>fh", "<cmd>Telescope help_tags<CR>" },
     { "<leader>ff", find_files },
@@ -47,6 +49,11 @@ return {
     { "<leader>fg", "<cmd>Telescope live_grep<CR>" },
     { "<leader>fb", "<cmd>Telescope buffers<CR>" },
 
-    { "<leader>fr", function() require("telescope.builtin").resume() end },
+    {
+      "<leader>fr",
+      function()
+        require("telescope.builtin").resume()
+      end,
+    },
   },
 }
