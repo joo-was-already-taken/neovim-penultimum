@@ -13,7 +13,7 @@ return {
         update_in_insert = false,
         severity_sort = true,
       })
-     
+
       local servers = {
         lua_ls = {},
         nil_ls = {},
@@ -51,6 +51,7 @@ return {
           keymap_set("n", "<leader>rn", buf.rename)
           keymap_set("n", "<leader>ca", buf.code_action)
           keymap_set("n", "gR", "<cmd>Telescope lsp_references<CR>")
+          keymap_set("n", "<leader>lf", buf.format)
 
           keymap_set("n", "<leader>xd", "<cmd>Lspsaga show_line_diagnostics<CR>")
           keymap_set("n", "<leader>xj", "<cmd>Lspsaga diagnostic_jump_next<CR>")
