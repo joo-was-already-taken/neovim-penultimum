@@ -1,5 +1,5 @@
 return {
-  "smart-splits-nvim",
+  "smart-splits.nvim",
   after = function(_)
     local splits = require("smart-splits")
     splits.setup({

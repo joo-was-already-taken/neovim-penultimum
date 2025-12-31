@@ -1,5 +1,5 @@
 return {
-  "neo-tree",
+  "neo-tree.nvim",
   lazy = false,
   after = function(_)
     require("neo-tree").setup({

@@ -3,29 +3,29 @@ if vim.g.allow_downloads then
     "savq/paq-nvim",
     "lumen-oss/lz.n",
 
-    { "nvim-lua/plenary.nvim", as = "plenary" },
+    "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
-    { "nvimtools/hydra.nvim", as = "hydra" },
-    { "rcarriga/nvim-notify", as = "notify" },
+    "nvimtools/hydra.nvim",
+    "rcarriga/nvim-notify",
 
     { "nvim-treesitter/nvim-treesitter", branch = "main", opt = true },
-    { "nvim-neo-tree/neo-tree.nvim", as = "neo-tree", opt = true },
-    { "nvim-lualine/lualine.nvim", as = "lualine", opt = true },
-    { "folke/noice.nvim", as = "noice", opt = true },
+    { "nvim-neo-tree/neo-tree.nvim", opt = true },
+    { "nvim-lualine/lualine.nvim", opt = true },
+    { "folke/noice.nvim", opt = true },
     { "kylechui/nvim-surround", opt = true },
-    { "lukas-reineke/indent-blankline.nvim", as = "ibl", opt = true },
+    { "lukas-reineke/indent-blankline.nvim", opt = true },
 
     { "alexghergh/nvim-tmux-navigation", opt = true },
-    { "nvim-telescope/telescope.nvim", as = "telescope", opt = true },
+    { "nvim-telescope/telescope.nvim", opt = true },
     { "tpope/vim-obsession", opt = true },
-    { "mrjones2014/smart-splits.nvim", as = "smart-splits-nvim", opt = true },
+    { "mrjones2014/smart-splits.nvim", opt = true },
     { "Saghen/blink.cmp", opt = true },
     { "nvim-mini/mini.pairs", opt = true },
     { "neovim/nvim-lspconfig", opt = true },
-    { "glepnir/lspsaga.nvim", as = "lspsaga", opt = true },
+    { "glepnir/lspsaga.nvim", opt = true },
     { "mbbill/undotree", opt = true },
-    { "stevearc/conform.nvim", as = "conform", opt = true },
+    { "stevearc/conform.nvim", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
@@ -94,7 +94,7 @@ local lz_specs = {
     end,
   },
   {
-    "ibl",
+    "indent-blankline.nvim",
     lazy = false,
     after = function(_)
       require("ibl").setup({

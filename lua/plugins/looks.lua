@@ -1,13 +1,13 @@
 return {
   {
-    "noice",
+    "noice.nvim",
     lazy = false,
     after = function(_)
       require("noice").setup({})
     end,
   },
   {
-    "notify",
+    "nvim-notify",
     lazy = false,
     after = function(_)
       local notify = require("notify")

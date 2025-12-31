@@ -15,9 +15,9 @@ local function find_files()
 end
 
 return {
-  "telescope",
-  after = function(telescope)
-    require(telescope.name).setup({
+  "telescope.nvim",
+  after = function(_)
+    require("telescope").setup({
       defaults = {
         preview = {
           treesitter = true,

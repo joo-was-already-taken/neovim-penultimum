@@ -76,7 +76,7 @@ return {
     end,
   },
   {
-    "lspsaga",
+    "lspsaga.nvim",
     event = "LspAttach",
     before = function()
       require("lz.n").trigger_load("nvim-treesitter")

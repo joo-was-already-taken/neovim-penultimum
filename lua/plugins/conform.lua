@@ -5,7 +5,7 @@ local format_opts = {
 }
 
 return {
-  "conform",
+  "conform.nvim",
   event = "BufWritePre",
   cmd = "ConformInfo",
   keys = {

@@ -1,5 +1,5 @@
 return {
-  "lualine",
+  "lualine.nvim",
   lazy = false,
   after = function(_)
     local codeium_status = {

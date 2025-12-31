@@ -51,9 +51,11 @@
             -e 's/vim.g.default_colorscheme =.*/vim.g.default_colorscheme = "${cfg.colorscheme}"/' \
             ${self}/init.lua > $out/init.lua
         '';
-        nvim-tmux-navigation = pkgs.vimUtils.buildVimPlugin {
+        nvim-tmux-navigation = (pkgs.vimUtils.buildVimPlugin {
           name = "nvim-tmux-navigation";
           src = inputs.nvim-tmux-navigation;
+        }).overrideAttrs {
+          pname = "nvim-tmux-navigation";
         };
         evergarden-colorscheme = (pkgs.vimUtils.buildVimPlugin {
           name = "evergarden";
