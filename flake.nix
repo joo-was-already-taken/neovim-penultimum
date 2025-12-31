@@ -92,6 +92,9 @@
           lspsaga-nvim
           undotree
           conform-nvim
+          render-markdown-nvim
+          markdown-preview-nvim
+          no-neck-pain-nvim
 
           evergarden-colorscheme
 

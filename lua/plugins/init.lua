@@ -26,6 +26,15 @@ if vim.g.allow_downloads then
     { "glepnir/lspsaga.nvim", opt = true },
     { "mbbill/undotree", opt = true },
     { "stevearc/conform.nvim", opt = true },
+    { "MeanderingProgrammer/render-markdown.nvim", opt = true },
+    {
+      "iamcco/markdown-preview.nvim",
+      build = function()
+        vim.fn["mkdp#util#install"]()
+      end,
+      opt = true,
+    },
+    { "shortcuts/no-neck-pain.nvim", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
@@ -113,6 +122,7 @@ end
 extend(lz_specs, require("plugins/looks"))
 extend(lz_specs, require("plugins/mini"))
 extend(lz_specs, require("plugins/lsp"))
+extend(lz_specs, require("plugins/markdown"))
 extend(lz_specs, require("plugins/colorschemes"))
 
 require("lz.n").load(lz_specs)
