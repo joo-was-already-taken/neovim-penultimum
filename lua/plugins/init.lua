@@ -35,6 +35,7 @@ if vim.g.allow_downloads then
       opt = true,
     },
     { "shortcuts/no-neck-pain.nvim", opt = true },
+    { "chomosuke/typst-preview.nvim", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
@@ -109,6 +110,13 @@ local lz_specs = {
       require("ibl").setup({
         scope = { enabled = false },
       })
+    end,
+  },
+  {
+    "typst-preview.nvim",
+    ft = "typst",
+    after = function(_)
+      require("typst-preview").setup({})
     end,
   },
 }

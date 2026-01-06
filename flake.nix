@@ -94,6 +94,7 @@
           render-markdown-nvim
           markdown-preview-nvim
           no-neck-pain-nvim
+          typst-preview-nvim
 
           evergarden-colorscheme
 
