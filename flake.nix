@@ -26,7 +26,6 @@
       in {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            neovim
             tree-sitter
             lua-language-server
             stylua
