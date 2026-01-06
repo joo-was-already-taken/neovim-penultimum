@@ -61,17 +61,10 @@ return {
       end
     end, {})
 
-    local function start_treesitter(buf)
-      local ok, _ = pcall(vim.treesitter.start, buf)
-      if ok then
-        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      end
-    end
-
     vim.api.nvim_create_autocmd("FileType", {
       group = vim.api.nvim_create_augroup("nvim-treesitter-setup", { clear = true }),
       callback = function(args)
-        start_treesitter(args.buf)
+        pcall(vim.treesitter.start, args.buf)
       end,
     })
   end,
