@@ -9,10 +9,11 @@ fi
 install_method="${1:-link}"
 install_config() {
   case "$install_method" in
-    copy) cp -rv -- init.lua lua "$DEST/";;
+    copy) cp -rv -- init.lua lua after "$DEST/";;
     link)
       ln -sfv -- "$(realpath init.lua)" "$DEST/init.lua"
       ln -sfnv -- "$(realpath lua)" "$DEST/lua"
+      ln -sfnv -- "$(realpath after)" "$DEST/after"
       ;;
     *)
       echo "Invalid installation method specified, expected 'link' or 'copy'" >&2

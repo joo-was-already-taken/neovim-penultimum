@@ -44,6 +44,7 @@
         cfg = config.programs.neovim-penultimum;
         patchedConfig = pkgs.runCommand "neovim-patched-config" {} ''
           mkdir -p $out
+          cp -r ${self}/after $out/
           cp -r ${self}/lua $out/
           sed \
             -e 's/vim.g.allow_downloads =.*/vim.g.allow_downloads = false/' \
