@@ -33,6 +33,7 @@
             stdenv
             ripgrep
             fd
+            cachix
           ];
         };
 
