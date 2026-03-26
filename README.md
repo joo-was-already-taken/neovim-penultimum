@@ -1,5 +1,5 @@
 # Neovim Penultimum
-This is my personal Neovim configuration, and therefore I only care for it to work me. \
+This is my personal Neovim configuration, and therefore I only care for it to work for me. \
 There are two installation methods:
 - Executing *install.sh* Bash script.
 - Using Home Manager module:
