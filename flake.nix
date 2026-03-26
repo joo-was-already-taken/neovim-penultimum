@@ -23,7 +23,8 @@
         ./nix/plugins.nix
         ./nix/home-manager.nix
       ];
-      perSystem = { pkgs, ... }: {
+      perSystem = { pkgs, system, ... }: {
+        packages.neovim = inputs.neovim-nightly.packages.${system}.default;
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             tree-sitter
