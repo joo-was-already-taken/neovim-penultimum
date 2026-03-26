@@ -76,6 +76,7 @@
           nui-nvim
           hydra-nvim
           nvim-notify
+          copilot-lualine
         ];
         optPlugins = with pkgs.vimPlugins; [
           neo-tree-nvim
@@ -97,6 +98,7 @@
           markdown-preview-nvim
           no-neck-pain-nvim
           typst-preview-nvim
+          copilot-lua
 
           evergarden-colorscheme
 

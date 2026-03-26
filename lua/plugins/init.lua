@@ -8,6 +8,7 @@ if vim.g.allow_downloads then
     "MunifTanjim/nui.nvim",
     "nvimtools/hydra.nvim",
     "rcarriga/nvim-notify",
+    "AndreM222/copilot-lualine",
 
     { "nvim-treesitter/nvim-treesitter", branch = "main", opt = true },
     { "nvim-neo-tree/neo-tree.nvim", opt = true },
@@ -36,6 +37,7 @@ if vim.g.allow_downloads then
     },
     { "shortcuts/no-neck-pain.nvim", opt = true },
     { "chomosuke/typst-preview.nvim", opt = true },
+    { "zbirenbaum/copilot.lua", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
@@ -49,6 +51,7 @@ local lz_specs = {
   require("plugins/smart-splits"),
   require("plugins/blink"),
   require("plugins/conform"),
+  require("plugins/ai"),
   { "vim-obsession", cmd = "Obsession" },
   {
     "nvim-tmux-navigation",
