@@ -7,11 +7,12 @@ There are two installation methods:
   ```nix
   neovim-penultimum.url = "github:joo-was-already-taken/neovim-penultimum";
   ```
-  2. Add the following to your Home Manager files:
+  2. Add this to your Home Manager imports:
   ```nix
-  programs.neovim = {
-    enable = true;
-    package = inputs.neovim-penultimum.packages.${YOUR_SYSTEM}.neovim;
-  };
-  programs.neovim-penultimum.enable = true;
+  inputs.neovim-penultimum.homeModules.default
+  ```
+  3. And in your Home Manager files add:
+  ```nix
+  neovim-penultimum.enable = true;
+  programs.neovim.extraPackages [ pkgs.wl-clipboard ]; # or whatever clipboard you use
   ```
