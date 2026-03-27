@@ -88,4 +88,18 @@ return {
       })
     end,
   },
+  {
+    "fidget.nvim",
+    event = "LspAttach",
+    after = function(_)
+      require("fidget").setup({
+        progress = {
+          suppres_on_insert = true,
+          display = {
+            render_limit = 12,
+          },
+        },
+      })
+    end,
+  },
 }

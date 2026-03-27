@@ -3,7 +3,11 @@ return {
     "noice.nvim",
     lazy = false,
     after = function(_)
-      require("noice").setup({})
+      require("noice").setup({
+        lsp = {
+          progress = { enabled = false },
+        },
+      })
     end,
   },
   {

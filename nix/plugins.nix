@@ -48,6 +48,7 @@
       no-neck-pain-nvim
       typst-preview-nvim
       copilot-lua
+      fidget-nvim
 
       evergarden-colorscheme
 

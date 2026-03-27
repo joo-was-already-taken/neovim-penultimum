@@ -38,6 +38,7 @@ if vim.g.allow_downloads then
     { "shortcuts/no-neck-pain.nvim", opt = true },
     { "chomosuke/typst-preview.nvim", opt = true },
     { "zbirenbaum/copilot.lua", opt = true },
+    { "j-hui/fidget.nvim", opt = true },
 
     { "everviolet/nvim", as = "evergarden", opt = true },
   })
