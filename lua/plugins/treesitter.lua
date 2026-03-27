@@ -31,7 +31,9 @@ return {
       "javascript",
       "css",
     }
+
     local ts = require("nvim-treesitter")
+
     vim.api.nvim_create_user_command("InstallTSParsers", function()
       local function contains(t, val)
         for _, v in ipairs(t) do
@@ -63,8 +65,25 @@ return {
 
     vim.api.nvim_create_autocmd("FileType", {
       group = vim.api.nvim_create_augroup("nvim-treesitter-setup", { clear = true }),
+      pattern = "*",
       callback = function(args)
-        pcall(vim.treesitter.start, args.buf)
+        local ft = vim.bo[args.buf].filetype
+        if ft == "" or vim.bo[args.buf].buftype ~= "" then
+          return
+        end
+
+        local max_filesize = 1024 * 1024 -- 1MiB
+        local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
+        if ok and stats and stats.size > max_filesize then
+          return
+        end
+
+        local lang = vim.treesitter.language.get_lang(ft) or ft
+        local has_parser = pcall(vim.treesitter.language.inspect, lang)
+        if has_parser then
+          vim.treesitter.start(args.buf)
+          vim.bo[args.buf].indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        end
       end,
     })
   end,
