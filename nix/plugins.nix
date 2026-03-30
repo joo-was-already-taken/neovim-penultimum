@@ -50,6 +50,7 @@
       copilot-lua
       fidget-nvim
       gitsigns-nvim
+      git-conflict-nvim
 
       evergarden-colorscheme
 

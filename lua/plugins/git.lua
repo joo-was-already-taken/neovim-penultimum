@@ -1,5 +1,15 @@
 return {
   {
+    "git-conflict.nvim",
+    lazy = false,
+    after = function(_)
+      require("git-conflict").setup({
+        default_mappings = true,
+        default_commands = true,
+      })
+    end,
+  },
+  {
     "gitsigns.nvim",
     lazy = false,
     after = function(_)
