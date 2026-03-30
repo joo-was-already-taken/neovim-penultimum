@@ -12,7 +12,7 @@ return {
         default = { "lsp", "buffer", "snippets", "path" },
       },
       signature = { enabled = true },
-      fuzzy = { implementation = "lua" }, -- TODO: use rust fuzzy
+      fuzzy = { implementation = "prefer_rust_with_warning" },
     })
   end,
 }
