@@ -16,6 +16,7 @@ if vim.g.allow_downloads then
     { "folke/noice.nvim", opt = true },
     { "kylechui/nvim-surround", opt = true },
     { "lukas-reineke/indent-blankline.nvim", opt = true },
+    { "lewis6991/gitsigns.nvim", opt = true },
 
     { "alexghergh/nvim-tmux-navigation", opt = true },
     { "nvim-telescope/telescope.nvim", opt = true },
@@ -134,6 +135,7 @@ end
 extend(lz_specs, require("plugins/looks"))
 extend(lz_specs, require("plugins/mini"))
 extend(lz_specs, require("plugins/lsp"))
+extend(lz_specs, require("plugins/git"))
 extend(lz_specs, require("plugins/markdown"))
 extend(lz_specs, require("plugins/colorschemes"))
 

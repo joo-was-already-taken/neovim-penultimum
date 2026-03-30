@@ -49,6 +49,7 @@
       typst-preview-nvim
       copilot-lua
       fidget-nvim
+      gitsigns-nvim
 
       evergarden-colorscheme
 

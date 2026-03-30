@@ -30,7 +30,7 @@ return {
 
     local keymap_set = require("utils").keymap_set
     keymap_set("n", "<leader>e", "<cmd>Neotree filesystem toggle reveal float<CR>")
-    keymap_set("n", "<leader>g", "<cmd>Neotree git_status toggle reveal float<CR>")
+    keymap_set("n", "<leader>ge", "<cmd>Neotree git_status toggle reveal float<CR>")
     keymap_set("n", "<leader>b", "<cmd>Neotree buffers toggle reveal float<CR>")
   end,
 }
