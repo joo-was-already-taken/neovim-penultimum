@@ -35,6 +35,8 @@
           extraPackages = with pkgs; [
             ripgrep
             fd
+            curl
+            nodejs-slim_22
           ];
           plugins = (plugins pkgs).start
             ++ (map (p: { plugin = p; optional = true; }) (plugins pkgs).opt);
