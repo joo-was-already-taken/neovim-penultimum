@@ -20,6 +20,8 @@ return {
         top_down = false,
       })
 
+      vim.cmd.highlight("link NotifyBackground NormalFloat")
+
       local function dismiss_notifications()
         notify.dismiss({ silent = true, padding = true })
       end
