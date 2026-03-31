@@ -94,7 +94,7 @@ return {
     after = function(_)
       require("fidget").setup({
         progress = {
-          suppres_on_insert = true,
+          suppress_on_insert = true,
           display = {
             render_limit = 12,
           },
