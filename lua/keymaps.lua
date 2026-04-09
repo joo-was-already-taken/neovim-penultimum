@@ -43,6 +43,7 @@ keymap_set("n", "<leader>wt", function()
     vim.cmd([[%s/\s\+$//e]])
   end)
   vim.fn.setpos(".", cursor)
+  vim.cmd("nohlsearch")
 end)
 
 keymap_set("n", "<leader>nh", "<cmd>nohlsearch<CR>")
