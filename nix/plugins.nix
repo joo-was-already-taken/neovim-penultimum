@@ -32,7 +32,7 @@
       lualine-nvim
       noice-nvim
       nvim-surround
-      indent-blankline-nvim-lua
+      indent-blankline-nvim
       nvim-tmux-navigation
       telescope-nvim
       vim-obsession
