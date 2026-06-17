@@ -17,6 +17,12 @@
         "evergarden.extras"
       ];
     };
+    git-conflict-nvim = (pkgs.vimUtils.buildVimPlugin {
+      name = "git-conflict-nvim";
+      src = inputs.git-conflict-nvim;
+    }).overrideAttrs {
+      pname = "git-conflict-nvim";
+    };
   in {
     start = with pkgs.vimPlugins; [
       lz-n
