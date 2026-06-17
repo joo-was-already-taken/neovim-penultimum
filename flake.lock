@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "git-conflict-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735340003,
+        "narHash": "sha256-CmSgmpg5K3ySXYrDjg8yTAojeLWJdSHP8uNVFyrkNhc=",
+        "owner": "akinsho",
+        "repo": "git-conflict.nvim",
+        "rev": "a1badcd070d176172940eb55d9d59029dad1c5a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "akinsho",
+        "repo": "git-conflict.nvim",
+        "type": "github"
+      }
+    },
     "neovim-nightly": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -143,6 +159,7 @@
       "inputs": {
         "evergarden-colorscheme": "evergarden-colorscheme",
         "flake-parts": "flake-parts",
+        "git-conflict-nvim": "git-conflict-nvim",
         "neovim-nightly": "neovim-nightly",
         "nixpkgs": "nixpkgs",
         "nvim-tmux-navigation": "nvim-tmux-navigation"
