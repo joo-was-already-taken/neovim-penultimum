@@ -17,12 +17,6 @@
         "evergarden.extras"
       ];
     };
-    git-conflict-nvim = (pkgs.vimUtils.buildVimPlugin {
-      name = "git-conflict-nvim";
-      src = inputs.git-conflict-nvim;
-    }).overrideAttrs {
-      pname = "git-conflict-nvim";
-    };
   in {
     start = with pkgs.vimPlugins; [
       lz-n
@@ -56,7 +50,7 @@
       copilot-lua
       fidget-nvim
       gitsigns-nvim
-      git-conflict-nvim
+      (conflict-nvim.overrideAttrs { pname = "conflict"; })
 
       evergarden-colorscheme
 
