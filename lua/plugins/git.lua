@@ -1,9 +1,9 @@
 return {
   {
-    "git-conflict.nvim",
+    "conflict",
     lazy = false,
     after = function(_)
-      require("git-conflict").setup({
+      require("conflict").setup({
         default_mappings = true,
         default_commands = true,
       })

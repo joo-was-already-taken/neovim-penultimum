@@ -14,10 +14,6 @@
       url = "github:everviolet/nvim";
       flake = false;
     };
-    git-conflict-nvim = {
-      url = "github:akinsho/git-conflict.nvim";
-      flake = false;
-    };
   };
 
   outputs = { flake-parts, ... }@inputs:
