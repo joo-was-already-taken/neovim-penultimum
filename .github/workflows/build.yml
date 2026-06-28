@@ -1,8 +1,9 @@
 name: "Build and Cache Neovim"
 on:
   push:
-    branches: [ trunk ]
+    branches: [ trunk, devel ]
   pull_request:
+    branches: [ trunk, devel ]
 
 jobs:
   build-and-cache:
