@@ -31,7 +31,7 @@
       config = lib.mkIf cfg.enable {
         programs.neovim = {
           enable = true;
-          package = inputs.neovim-nightly.packages.${pkgs.system}.default;
+          package = inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
           withRuby = false;
           withPython3 = false;
           extraPackages = with pkgs; [
