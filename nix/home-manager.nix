@@ -32,6 +32,8 @@
         programs.neovim = {
           enable = true;
           package = inputs.neovim-nightly.packages.${pkgs.system}.default;
+          withRuby = false;
+          withPython3 = false;
           extraPackages = with pkgs; [
             ripgrep
             fd
