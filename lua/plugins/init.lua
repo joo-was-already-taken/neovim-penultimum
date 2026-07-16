@@ -19,7 +19,8 @@ if vim.g.allow_downloads then
     { "lewis6991/gitsigns.nvim", opt = true },
     { "niekdmoni/conflict.nvim", opt = true },
 
-    { "alexghergh/nvim-tmux-navigation", opt = true },
+    -- { "alexghergh/nvim-tmux-navigation", opt = true },
+    { "joo-was-already-taken/herdr-navigator.nvim", opt = true },
     { "nvim-telescope/telescope.nvim", opt = true },
     { "tpope/vim-obsession", opt = true },
     { "mrjones2014/smart-splits.nvim", opt = true },
@@ -57,39 +58,46 @@ local lz_specs = {
   require("plugins/ai"),
   { "vim-obsession", cmd = "Obsession" },
   {
-    "nvim-tmux-navigation",
+    "herdr-navigator.nvim",
+    lazy = false,
     after = function(_)
-      require("nvim-tmux-navigation").setup({
-        disable_when_zoomed = true,
-      })
+      require("herdr-navigator").setup({})
     end,
-    keys = {
-      {
-        "<C-h>",
-        function()
-          require("nvim-tmux-navigation").NvimTmuxNavigateLeft()
-        end,
-      },
-      {
-        "<C-l>",
-        function()
-          require("nvim-tmux-navigation").NvimTmuxNavigateRight()
-        end,
-      },
-      {
-        "<C-j>",
-        function()
-          require("nvim-tmux-navigation").NvimTmuxNavigateDown()
-        end,
-      },
-      {
-        "<C-k>",
-        function()
-          require("nvim-tmux-navigation").NvimTmuxNavigateUp()
-        end,
-      },
-    },
   },
+  -- {
+  --   "nvim-tmux-navigation",
+  --   after = function(_)
+  --     require("nvim-tmux-navigation").setup({
+  --       disable_when_zoomed = true,
+  --     })
+  --   end,
+  --   keys = {
+  --     {
+  --       "<C-h>",
+  --       function()
+  --         require("nvim-tmux-navigation").NvimTmuxNavigateLeft()
+  --       end,
+  --     },
+  --     {
+  --       "<C-l>",
+  --       function()
+  --         require("nvim-tmux-navigation").NvimTmuxNavigateRight()
+  --       end,
+  --     },
+  --     {
+  --       "<C-j>",
+  --       function()
+  --         require("nvim-tmux-navigation").NvimTmuxNavigateDown()
+  --       end,
+  --     },
+  --     {
+  --       "<C-k>",
+  --       function()
+  --         require("nvim-tmux-navigation").NvimTmuxNavigateUp()
+  --       end,
+  --     },
+  --   },
+  -- },
   {
     "undotree",
     cmd = "UndotreeToggle",

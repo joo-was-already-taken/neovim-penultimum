@@ -1,12 +1,12 @@
 { inputs, ... }:
 {
   _module.args.plugins = pkgs: let
-    nvim-tmux-navigation = (pkgs.vimUtils.buildVimPlugin {
-      name = "nvim-tmux-navigation";
-      src = inputs.nvim-tmux-navigation;
-    }).overrideAttrs {
-      pname = "nvim-tmux-navigation";
-    };
+    # nvim-tmux-navigation = (pkgs.vimUtils.buildVimPlugin {
+    #   name = "nvim-tmux-navigation";
+    #   src = inputs.nvim-tmux-navigation;
+    # }).overrideAttrs {
+    #   pname = "nvim-tmux-navigation";
+    # };
     evergarden-colorscheme = (pkgs.vimUtils.buildVimPlugin {
       name = "evergarden";
       src = inputs.evergarden-colorscheme;
@@ -33,7 +33,8 @@
       noice-nvim
       nvim-surround
       indent-blankline-nvim
-      nvim-tmux-navigation
+      # nvim-tmux-navigation
+      inputs.herdr-navigator.packages.${pkgs.stdenv.hostPlatform.system}.herdr-navigator-nvim
       telescope-nvim
       vim-obsession
       smart-splits-nvim

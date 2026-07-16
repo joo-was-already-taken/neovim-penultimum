@@ -6,10 +6,11 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvim-tmux-navigation = {
-      url = "github:alexghergh/nvim-tmux-navigation";
-      flake = false;
-    };
+    # nvim-tmux-navigation = {
+    #   url = "github:alexghergh/nvim-tmux-navigation";
+    #   flake = false;
+    # };
+    herdr-navigator.url = "github:joo-was-already-taken/herdr-navigator.nvim";
     evergarden-colorscheme = {
       url = "github:everviolet/nvim";
       flake = false;

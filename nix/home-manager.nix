@@ -44,6 +44,9 @@
             ++ (map (p: { plugin = p; optional = true; }) (plugins pkgs).opt);
         };
         xdg.configFile."nvim".source = patchedConfig;
+        home.packages = [
+          inputs.herdr-navigator.packages.${pkgs.stdenv.hostPlatform.system}.herdr-navigator
+        ];
       };
     };
   };
