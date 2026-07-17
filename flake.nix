@@ -2,10 +2,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    neovim-nightly = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # nvim-tmux-navigation = {
     #   url = "github:alexghergh/nvim-tmux-navigation";
     #   flake = false;
@@ -25,7 +21,6 @@
         ./nix/home-manager.nix
       ];
       perSystem = { pkgs, system, ... }: {
-        packages.neovim = inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             tree-sitter
