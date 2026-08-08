@@ -51,7 +51,7 @@
       copilot-lua
       fidget-nvim
       gitsigns-nvim
-      (conflict-nvim.overrideAttrs { pname = "conflict"; })
+      conflict-nvim
 
       evergarden-colorscheme
 

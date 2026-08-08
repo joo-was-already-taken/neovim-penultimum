@@ -1,6 +1,6 @@
 return {
   {
-    "conflict",
+    "conflict.nvim",
     lazy = false,
     after = function(_)
       require("conflict").setup({
