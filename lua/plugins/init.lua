@@ -34,6 +34,8 @@ if vim.g.allow_downloads then
       end,
     },
     { "nvim-mini/mini.pairs", opt = true },
+    { "mason-org/mason.nvim", opt = true },
+    { "mason-org/mason-lspconfig.nvim", opt = true },
     { "neovim/nvim-lspconfig", opt = true },
     { "glepnir/lspsaga.nvim", opt = true },
     { "mbbill/undotree", opt = true },

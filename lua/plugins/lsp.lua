@@ -1,9 +1,22 @@
-return {
+local plugins = {
   {
     "nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
+    cmd = {
+      "Mason",
+      "MasonUpdate",
+      "MasonInstall",
+      "MasonInstallAll",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+    },
     before = function()
       require("lz.n").trigger_load("blink.cmp")
+      if vim.g.allow_downloads then
+        require("lz.n").trigger_load("mason.nvim")
+        require("lz.n").trigger_load("mason-lspconfig.nvim")
+      end
     end,
     after = function(_)
       vim.diagnostic.config({
@@ -41,6 +54,16 @@ return {
         tinymist = {},
         ts_ls = {},
       }
+
+      if vim.g.allow_downloads then
+        require("mason").setup()
+        require("mason-lspconfig").setup()
+
+        vim.api.nvim_create_user_command("MasonInstallAll", function()
+          vim.cmd("LspInstall " .. table.concat(vim.tbl_keys(servers), " "))
+        end, {})
+      end
+
       local capabilities = require("blink.cmp").get_lsp_capabilities()
       vim.lsp.config("*", { capabilities = capabilities })
       for server, config in pairs(servers) do
@@ -103,3 +126,10 @@ return {
     end,
   },
 }
+
+if vim.g.allow_downloads then
+  table.insert(plugins, { "mason.nvim" })
+  table.insert(plugins, { "mason-lspconfig.nvim" })
+end
+
+return plugins
