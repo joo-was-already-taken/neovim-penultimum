@@ -24,7 +24,15 @@ if vim.g.allow_downloads then
     { "nvim-telescope/telescope.nvim", opt = true },
     { "tpope/vim-obsession", opt = true },
     { "mrjones2014/smart-splits.nvim", opt = true },
-    { "Saghen/blink.cmp", opt = true },
+    { "Saghen/blink.lib" },
+    {
+      "Saghen/blink.cmp",
+      opt = true,
+      build = function()
+        vim.cmd.packadd("blink.cmp")
+        require("blink.cmp").build():pwait()
+      end,
+    },
     { "nvim-mini/mini.pairs", opt = true },
     { "neovim/nvim-lspconfig", opt = true },
     { "glepnir/lspsaga.nvim", opt = true },
@@ -33,10 +41,11 @@ if vim.g.allow_downloads then
     { "MeanderingProgrammer/render-markdown.nvim", opt = true },
     {
       "iamcco/markdown-preview.nvim",
+      opt = true,
       build = function()
+        vim.cmd.packadd("markdown-preview.nvim")
         vim.fn["mkdp#util#install"]()
       end,
-      opt = true,
     },
     { "shortcuts/no-neck-pain.nvim", opt = true },
     { "chomosuke/typst-preview.nvim", opt = true },
