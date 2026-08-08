@@ -6,6 +6,7 @@ vim.deprecate = function() end
 
 require("opt")
 require("keymaps")
+require("tab")
 require("plugins")
 
 vim.cmd.colorscheme(vim.g.default_colorscheme)
