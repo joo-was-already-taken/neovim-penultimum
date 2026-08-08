@@ -22,7 +22,7 @@ install_config() {
   esac
 }
 
-DEST=${XDG_CONFIG_HOME:-"~/.config"}/nvim
+DEST="${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 mkdir -p -- "$DEST"
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
