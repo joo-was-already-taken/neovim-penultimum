@@ -11,7 +11,6 @@ return {
   },
   after = function(_)
     require("copilot").setup({
-      should_attach = function(_, _) return false end,
       suggestion = {
         enabled = true,
         auto_trigger = false,
