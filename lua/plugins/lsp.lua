@@ -1,3 +1,30 @@
+local is_nvim_dev_on = false
+
+vim.api.nvim_create_user_command("NvimDev", function(opts)
+  local arg = opts.args
+  if arg == "start" then
+    is_nvim_dev_on = true
+  elseif arg == "stop" then
+    is_nvim_dev_on = false
+  else
+    vim.notify("NvimDev: expected 'start' or 'stop'", vim.log.levels.ERROR)
+    return
+  end
+  for _, client in ipairs(vim.lsp.get_clients({ name = "lua_ls" })) do
+    ---@diagnostic disable-next-line: undefined-field
+    client.config.settings.Lua.workspace.library =
+      is_nvim_dev_on and vim.api.nvim_get_runtime_file("", true) or {}
+    client:notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+  end
+  vim.notify("NvimDev: " .. arg, vim.log.levels.INFO)
+end, {
+  nargs = 1,
+  complete = function()
+    return { "start", "stop" }
+  end,
+  desc = "Toggle Neovim Lua dev environment for lua_ls",
+})
+
 local plugins = {
   {
     "nvim-lspconfig",
@@ -29,6 +56,11 @@ local plugins = {
 
       local servers = {
         lua_ls = {
+          on_init = function(client)
+            client.config.settings.Lua.workspace.library =
+              is_nvim_dev_on and vim.api.nvim_get_runtime_file("", true) or {}
+            client:notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+          end,
           settings = {
             Lua = {
               diagnostics = {
@@ -38,9 +70,7 @@ local plugins = {
                   ["fallback"] = "Any",
                 },
               },
-              workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-              },
+              workspace = { library = {} },
             },
           },
         },
