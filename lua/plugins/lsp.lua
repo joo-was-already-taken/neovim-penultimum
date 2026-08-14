@@ -53,6 +53,7 @@ local plugins = {
         zls = {},
         tinymist = {},
         ts_ls = {},
+        intelephense = {},
       }
 
       if vim.g.allow_downloads then
