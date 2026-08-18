@@ -31,6 +31,7 @@ return {
       "javascript",
       "php",
       "css",
+      "slint",
     }
 
     local ts = require("nvim-treesitter")
