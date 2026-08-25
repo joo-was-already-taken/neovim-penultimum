@@ -44,7 +44,9 @@ return {
 
           map("n", "<leader>gp", gitsigns.preview_hunk)
           map("n", "<leader>gdd", gitsigns.diffthis)
-          map("n", "<leader>gD", function() gitsigns.diffthis("~") end)
+          map("n", "<leader>gD", function()
+            gitsigns.diffthis("~")
+          end)
           map("n", "<leader>gdw", gitsigns.toggle_word_diff)
 
           map("n", "[c", function()

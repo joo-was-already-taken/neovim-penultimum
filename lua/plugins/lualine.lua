@@ -19,7 +19,7 @@ return {
             function()
               local reg = vim.fn.reg_recording()
               if reg ~= "" then
-                return "recording @".. reg
+                return "recording @" .. reg
               end
               return ""
             end,

@@ -37,8 +37,8 @@ vim.api.nvim_create_user_command("TabWidth", function(opts)
 end, { nargs = 1, desc = "Set tab width for current filetype" })
 
 vim.api.nvim_create_user_command("TabExpand", function(opts)
-  local true_args = { "true", "on", "yes", "1" };
-  local false_args = { "false", "off", "no", "0" };
+  local true_args = { "true", "on", "yes", "1" }
+  local false_args = { "false", "off", "no", "0" }
 
   local function is_in_array(elem, arr)
     for _, e in ipairs(arr) do

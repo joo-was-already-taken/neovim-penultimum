@@ -12,9 +12,13 @@ vim.api.nvim_create_user_command("NvimDev", function(opts)
   end
   for _, client in ipairs(vim.lsp.get_clients({ name = "lua_ls" })) do
     ---@diagnostic disable-next-line: undefined-field
-    client.config.settings.Lua.workspace.library =
-      is_nvim_dev_on and vim.api.nvim_get_runtime_file("", true) or {}
-    client:notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+    client.config.settings.Lua.workspace.library = is_nvim_dev_on
+        and vim.api.nvim_get_runtime_file("", true)
+      or {}
+    client:notify(
+      "workspace/didChangeConfiguration",
+      { settings = client.config.settings }
+    )
   end
   vim.notify("NvimDev: " .. arg, vim.log.levels.INFO)
 end, {
@@ -57,9 +61,13 @@ local plugins = {
       local servers = {
         lua_ls = {
           on_init = function(client)
-            client.config.settings.Lua.workspace.library =
-              is_nvim_dev_on and vim.api.nvim_get_runtime_file("", true) or {}
-            client:notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+            client.config.settings.Lua.workspace.library = is_nvim_dev_on
+                and vim.api.nvim_get_runtime_file("", true)
+              or {}
+            client:notify(
+              "workspace/didChangeConfiguration",
+              { settings = client.config.settings }
+            )
           end,
           settings = {
             Lua = {
