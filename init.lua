@@ -6,6 +6,7 @@ vim.deprecate = function() end
 
 require("opt")
 require("keymaps")
+require("git")
 require("tab")
 require("plugins")
 
