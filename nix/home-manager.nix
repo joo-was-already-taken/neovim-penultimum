@@ -5,7 +5,15 @@
     neovim-penultimum = { config, lib, pkgs, ... }: let
       inherit (lib) types;
       cfg = config.neovim-penultimum;
-      patchedConfig = cfg.pkgs.runCommand "neovim-config-patched" {} ''
+      pkgs' = import cfg.pkgs.path {
+        inherit (cfg.pkgs) system overlays;
+        config = (cfg.pkgs.config or {}) // {
+          allowUnfreePredicate = pkg:
+            builtins.elem (lib.getName pkg) [ "copilot-language-server" ] ||
+            (cfg.pkgs.config ? allowUnfreePredicate && cfg.pkgs.config.allowUnfreePredicate pkg);
+        };
+      };
+      patchedConfig = pkgs'.runCommand "neovim-config-patched" {} ''
         mkdir -p $out
         cp -r ${../after} $out/after
         cp -r ${../lua} $out/lua
@@ -36,21 +44,21 @@
       config = lib.mkIf cfg.enable {
         programs.neovim = {
           enable = true;
-          package = cfg.pkgs.neovim-unwrapped;
+          package = pkgs'.neovim-unwrapped;
           withRuby = false;
           withPython3 = false;
-          extraPackages = with cfg.pkgs; [
+          extraPackages = with pkgs'; [
             ripgrep
             fd
             curl
             nodejs-slim_22
           ];
-          plugins = (plugins cfg.pkgs).start
-            ++ (map (p: { plugin = p; optional = true; }) (plugins cfg.pkgs).opt);
+          plugins = (plugins pkgs').start
+            ++ (map (p: { plugin = p; optional = true; }) (plugins pkgs').opt);
         };
         xdg.configFile."nvim".source = patchedConfig;
         home.packages = [
-          inputs.herdr-navigator.packages.${cfg.pkgs.stdenv.hostPlatform.system}.herdr-navigator
+          inputs.herdr-navigator.packages.${pkgs'.stdenv.hostPlatform.system}.herdr-navigator
         ];
       };
     };
