@@ -5,7 +5,7 @@
     neovim-penultimum = { config, lib, pkgs, ... }: let
       inherit (lib) types;
       cfg = config.neovim-penultimum;
-      patchedConfig = pkgs.runCommand "neovim-config-patched" {} ''
+      patchedConfig = cfg.pkgs.runCommand "neovim-config-patched" {} ''
         mkdir -p $out
         cp -r ${../after} $out/after
         cp -r ${../lua} $out/lua
@@ -26,26 +26,31 @@
           default = "evergarden";
           description = "Colorscheme to set via `vim.cmd.colorscheme`";
         };
+        pkgs = lib.mkOption {
+          type = types.pkgs;
+          default = pkgs;
+          description = "Package set to use for Neovim and its plugins";
+        };
       };
 
       config = lib.mkIf cfg.enable {
         programs.neovim = {
           enable = true;
-          package = pkgs.neovim-unwrapped;
+          package = cfg.pkgs.neovim-unwrapped;
           withRuby = false;
           withPython3 = false;
-          extraPackages = with pkgs; [
+          extraPackages = with cfg.pkgs; [
             ripgrep
             fd
             curl
             nodejs-slim_22
           ];
-          plugins = (plugins pkgs).start
-            ++ (map (p: { plugin = p; optional = true; }) (plugins pkgs).opt);
+          plugins = (plugins cfg.pkgs).start
+            ++ (map (p: { plugin = p; optional = true; }) (plugins cfg.pkgs).opt);
         };
         xdg.configFile."nvim".source = patchedConfig;
         home.packages = [
-          inputs.herdr-navigator.packages.${pkgs.stdenv.hostPlatform.system}.herdr-navigator
+          inputs.herdr-navigator.packages.${cfg.pkgs.stdenv.hostPlatform.system}.herdr-navigator
         ];
       };
     };
