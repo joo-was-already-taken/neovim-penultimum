@@ -12,7 +12,7 @@ vim.o.scrolloff = 5
 vim.o.completeopt = "menuone,noinsert,noselect"
 vim.o.cursorline = true
 vim.o.cursorlineopt = "number"
-vim.o.conceallevel = 2
+vim.o.conceallevel = 0
 vim.o.concealcursor = nil
 
 vim.o.hidden = true
