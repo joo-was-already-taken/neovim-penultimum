@@ -12,6 +12,7 @@ if vim.g.allow_downloads then
 
     { "nvim-treesitter/nvim-treesitter", branch = "main", opt = true },
     { "nvim-neo-tree/neo-tree.nvim", opt = true },
+    { "mikavilpas/yazi.nvim", opt = true },
     { "nvim-lualine/lualine.nvim", opt = true },
     { "folke/noice.nvim", opt = true },
     { "kylechui/nvim-surround", opt = true },
@@ -62,6 +63,7 @@ end
 local lz_specs = {
   require("plugins/treesitter"),
   require("plugins/neo-tree"),
+  require("plugins/yazi"),
   require("plugins/telescope"),
   require("plugins/lualine"),
   require("plugins/smart-splits"),

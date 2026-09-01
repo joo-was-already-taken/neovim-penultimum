@@ -29,6 +29,7 @@
     ];
     opt = with pkgs.vimPlugins; [
       neo-tree-nvim
+      yazi-nvim
       lualine-nvim
       noice-nvim
       nvim-surround
