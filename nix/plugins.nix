@@ -52,6 +52,7 @@
       fidget-nvim
       gitsigns-nvim
       conflict-nvim
+      diffview-plus-nvim
 
       evergarden-colorscheme
 

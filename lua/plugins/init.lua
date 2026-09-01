@@ -18,6 +18,7 @@ if vim.g.allow_downloads then
     { "lukas-reineke/indent-blankline.nvim", opt = true },
     { "lewis6991/gitsigns.nvim", opt = true },
     { "niekdomi/conflict.nvim", opt = true },
+    { "dlyongemallo/diffview-plus.nvim", opt = true },
 
     -- { "alexghergh/nvim-tmux-navigation", opt = true },
     { "joo-was-already-taken/herdr-navigator.nvim", opt = true },
