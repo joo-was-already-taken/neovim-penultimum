@@ -29,6 +29,7 @@ return {
       "cmake",
       "zig",
       "javascript",
+      "vue",
       "php",
       "css",
       "slint",

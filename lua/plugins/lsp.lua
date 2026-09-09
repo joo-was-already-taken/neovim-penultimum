@@ -90,7 +90,26 @@ local plugins = {
         rust_analyzer = {},
         zls = {},
         tinymist = {},
-        ts_ls = {},
+        ts_ls = {
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "vue", -- add vue
+          },
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = vim.fn.stdpath("data")
+                  .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+                languages = { "vue" },
+              },
+            },
+          },
+        },
+        vue_ls = {},
         intelephense = {},
         slint_lsp = {},
       }
