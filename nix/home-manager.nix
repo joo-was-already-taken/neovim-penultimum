@@ -6,7 +6,8 @@
       inherit (lib) types;
       cfg = config.neovim-penultimum;
       pkgs' = import cfg.pkgs.path {
-        inherit (cfg.pkgs) system overlays;
+        inherit (cfg.pkgs) overlays;
+        system = cfg.pkgs.stdenv.hostPlatform.system;
         config = (cfg.pkgs.config or {}) // {
           allowUnfreePredicate = pkg:
             builtins.elem (lib.getName pkg) [ "copilot-language-server" ] ||
