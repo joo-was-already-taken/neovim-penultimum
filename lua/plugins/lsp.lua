@@ -90,6 +90,7 @@ local plugins = {
         rust_analyzer = {},
         zls = {},
         tinymist = {},
+        jdtls = {},
         ts_ls = {
           filetypes = {
             "javascript",

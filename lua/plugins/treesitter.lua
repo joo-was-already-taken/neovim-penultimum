@@ -28,6 +28,7 @@ return {
       "cpp",
       "cmake",
       "zig",
+      "java",
       "javascript",
       "vue",
       "php",
