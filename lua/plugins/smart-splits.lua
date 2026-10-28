@@ -3,7 +3,9 @@ return {
   after = function(_)
     local splits = require("smart-splits")
     splits.setup({
-      default_amount = 5,
+      resize = {
+        amount = 5,
+      },
     })
 
     require("hydra")({
