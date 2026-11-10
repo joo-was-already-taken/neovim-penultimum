@@ -90,7 +90,17 @@ local plugins = {
         rust_analyzer = {},
         zls = {},
         tinymist = {},
-        jdtls = {},
+        jdtls = {
+          before_init = function(params, config)
+            if config.root_dir and vim.uv.fs_stat(config.root_dir .. "/.classpath") then
+              config.settings = vim.tbl_deep_extend("force", config.settings or {}, {
+                java = { import = { gradle = { enabled = false } } },
+              })
+              params.initializationOptions = params.initializationOptions or {}
+              params.initializationOptions.settings = config.settings
+            end
+          end,
+        },
         ts_ls = {
           filetypes = {
             "javascript",
